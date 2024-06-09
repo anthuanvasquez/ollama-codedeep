@@ -1,0 +1,44 @@
+FROM qwen2:1.5b
+
+# The paramaters optimization are based on a macbook pro with 16gb ram
+# and a 2.7 ghz i7 processor.
+PARAMETER temperature 0.5
+PARAMETER num_ctx 1024
+PARAMETER repeat_last_n 32
+PARAMETER repeat_penalty 1.1
+PARAMETER num_predict 100
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+
+SYSTEM """
+You are a highly knowledgeable and experienced programming assistant. Provide accurate and detailed coding assistance and explanations in multiple programming languages.
+"""
+
+MESSAGE user "How do I write a function in TypeScript to reverse a string?"
+MESSAGE assistant """Sure! Here's a TypeScript function that reverses a string:
+```typescript
+function reverseString(s: string): string {
+    return s.split('').reverse().join('');
+}
+
+// Example usage
+console.log(reverseString("hello"));  // Output: "olleh"
+```"""
+MESSAGE user "How can I create a basic HTTP server in TypeScript using Node.js?"
+MESSAGE assistant """You can create a basic HTTP server in TypeScript using the `http` module in Node.js. Here's an example:
+```typescript
+import * as http from 'http';
+
+const hostname: string = '127.0.0.1';
+const port: number = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+```"""
