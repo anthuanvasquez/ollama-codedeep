@@ -3,7 +3,7 @@ FROM qwen2:1.5b
 # The paramaters optimization are based on a macbook pro with 16gb ram
 # and a 2.7 ghz i7 processor.
 PARAMETER temperature 0.5
-PARAMETER num_ctx 1024
+PARAMETER num_ctx 4096
 PARAMETER repeat_last_n 32
 PARAMETER repeat_penalty 1.1
 PARAMETER num_predict 100
