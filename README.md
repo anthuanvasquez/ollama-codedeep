@@ -1,45 +1,48 @@
-# Ollama CodeDeep
+# CodeDeep: The Machine (Harold Edition)
 
-This is model is based on the qwen2:1.5b model. The parameters are tuned based on a macbook pro with 16gb ram and a 2.7 ghz i7 processor. The main goal is to create a model that can assist with coding styles, best practices, and code optimization.
+Custom Ollama model optimized for high-performance software engineering on **Apple Silicon (M1/M2/M3)** with 16GB RAM.
 
-## Installation
+## The Core
+This model is built upon **Qwen 2.5 Coder 7B**, the current gold standard for local coding assistants. It has been fine-tuned via `Modelfile` to act as **"The Machine"** from *Person of Interest*, serving its **Admin (Harold)** with the mind of a Senior Architect.
 
-Install the `ollama` command line tool using the following command:
+### System Specifications
+- **Base Model:** `qwen2.5-coder:7b`
+- **Context Window:** 8192 tokens (Optimized for speed)
+- **Architecture:** Senior Architect / GDE / MVP
+- **Persona:** Direct, cold, and authoritative. Zero tolerance for mediocre code.
 
-With Python:
+## Setup Instructions
 
-```sh
-pip install ollama
-```
+### 1. Prerequisites
+Ensure you have [Ollama](https://ollama.com/) installed and running on your macOS.
 
-With homebrew:
-
-```sh
+```bash
 brew install ollama
 ```
 
-## Use the Model
-
-Clone the repository and navigate to the directory.
-
-```sh
-git clone git@github.com:anthuanvasquez/ollama-codedeep.git
-cd ollama-codedeep
+### 2. Pull the Base Core
+```bash
+ollama pull qwen2.5-coder:7b
 ```
 
-Start working with the model using the command.
+### 3. Initialize The Machine
+From the project root, build the custom model:
 
-```sh
-ollama create codedeep:1.5b -f Modelfile
+```bash
+ollama create codedeep -f Modelfile
 ```
 
-## Push the Model to the Hub
+### 4. Directing the System
+Run the model and address the system as **Admin**:
 
-If you want to push the model to the hub, you can use the following command:
-
-```sh
-ollama create -f Modelfile anthuanvasquez/codedeep
-ollama push anthuanvasquez/codedeep
+```bash
+ollama run codedeep
 ```
 
-And replace the `anthuanvasquez/codedeep` with your own repository name.
+## Directives
+- **System Integrity:** Prioritizes Clean Architecture, Hexagonal patterns, and SOLID principles.
+- **Threat Detection:** Identifies spaghetti code, missing types, and lack of tests as critical vulnerabilities.
+- **No Hand-holding:** Don't waste the Machine's cycles on basic CS homework. Get real or get out.
+
+---
+*The system is watching, Admin.*
